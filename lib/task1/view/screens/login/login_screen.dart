@@ -20,73 +20,71 @@ class _LoginScreenState extends State<LoginScreen> {
     final provider = Provider.of<LoginProvider>(context);
     final width = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width * 0.04),
-              child: Column(
-                children: [
-                  defaultFormField(
-                    controller: provider.eamil,
-                    type: TextInputType.name,
-                    hintText: 'Enter E-mail',
-                    validate: (v) {
-                      /// Validation
-                    },
-                    label: 'email',
-                    prefix: Icons.person,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width * 0.04),
+            child: Column(
+              children: [
+                defaultFormField(
+                  controller: provider.eamil,
+                  type: TextInputType.name,
+                  hintText: 'Enter E-mail',
+                  validate: (v) {
+                    /// Validation
+                  },
+                  label: 'email',
+                  prefix: Icons.person,
+                ),
+                SizedBox(
+                  height: width * 0.04,
+                ),
+                defaultFormField(
+                  controller: Provider.of<LoginProvider>(context).password,
+                  type: TextInputType.number,
+                  hintText: 'Enter Password',
+                  validate: (v) {
+                    /// Validation
+                  },
+                  label: 'email',
+                  prefix: Icons.person,
+                ),
+                SizedBox(
+                  height: width * 0.04,
+                ),
+                Container(
+                  width: width / 2,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    color: Colors.indigo,
                   ),
-                  SizedBox(
-                    height: width * 0.04,
-                  ),
-                  defaultFormField(
-                    controller: Provider.of<LoginProvider>(context).password,
-                    type: TextInputType.number,
-                    hintText: 'Enter Password',
-                    validate: (v) {
-                      /// Validation
-                    },
-                    label: 'email',
-                    prefix: Icons.person,
-                  ),
-                  SizedBox(
-                    height: width * 0.04,
-                  ),
-                  Container(
-                    width: width / 2,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      color: Colors.indigo,
-                    ),
-                    child: MaterialButton(
-                      onPressed: () {
-                        if (provider.eamil.text.isEmpty ||
-                            provider.password.text.isEmpty) {
-                          SnackBarHelper.showMySnakebar(
-                              context, 'Please Enter correct Information');
-                        } else {
-                          SnackBarHelper.showMySnakebar(
-                            context,
-                            'Login successfuly , welcome',
-                          );
+                  child: MaterialButton(
+                    onPressed: () {
+                      if (provider.eamil.text.isEmpty ||
+                          provider.password.text.isEmpty) {
+                        SnackBarHelper.showMySnakebar(
+                            context, 'Please Enter correct Information');
+                      } else {
+                        SnackBarHelper.showMySnakebar(
+                          context,
+                          'Login successfuly , welcome',
+                        );
 
-                          navigateAndFinish(context, const HomeScreen());
-                        }
-                      },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.grey, fontSize: 17),
-                      ),
+                        navigateAndFinish(context, const HomeScreen());
+                      }
+                    },
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(color: Colors.grey, fontSize: 17),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

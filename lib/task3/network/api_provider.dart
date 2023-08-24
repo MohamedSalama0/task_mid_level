@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:task_mid_level/task3/network/dio_configuration.dart';
 import 'package:task_mid_level/task3/resources/dialog_setup.dart';
@@ -11,7 +10,6 @@ import 'dart:io';
 import 'dart:async';
 
 class ApiProvider {
-// next three lines makes this class a Singleton
   static final ApiProvider _instance = ApiProvider.internal();
   factory ApiProvider() => _instance;
 
@@ -34,7 +32,6 @@ class ApiProvider {
     bool showErrorDialog = true,
     Function(String successMsg)? getMsg,
   }) async {
-    //  dynamic currentContext = GlobalKey<NavigatorState>().currentContext!;
     if (topLoader) TopLoader.startLoading(currentContext);
     body ??= {};
     header = {

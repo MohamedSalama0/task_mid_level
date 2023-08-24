@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         /// [Task 2 (1 point done)]
         // home: CounterScreen(),
 
-
+        /// [Task 3 (1 point done)]
         home: PostsScreen(),
       ),
     );
